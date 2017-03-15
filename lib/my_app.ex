@@ -8,6 +8,7 @@ defmodule MyApp do
 
     # Define workers and child supervisors to be supervised
     children = [
+      Plug.Adapters.Cowboy.child_spec(:http, MyApp.MyRouter, [], [port: 4001])
       # Starts a worker by calling: MyApp.Worker.start_link(arg1, arg2, arg3)
       # worker(MyApp.Worker, [arg1, arg2, arg3]),
     ]

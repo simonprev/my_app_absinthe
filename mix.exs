@@ -14,7 +14,7 @@ defmodule MyApp.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger],
+    [applications: [:logger, :cowboy, :plug],
      mod: {MyApp, []}]
   end
 
@@ -29,7 +29,11 @@ defmodule MyApp.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:absinthe, "1.3.0-beta.0"}
+      {:cowboy, "~> 1.0.0"},
+      {:plug, "~> 1.0"},
+      {:poison, "~> 2.1.0"},
+      {:absinthe_plug, "~> 1.1"},
+      {:absinthe, "1.2.5"}
     ]
   end
 end
